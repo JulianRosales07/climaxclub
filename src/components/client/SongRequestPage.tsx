@@ -3,7 +3,7 @@ import { Music, MessageCircle } from 'lucide-react';
 
 export const SongRequestPage: React.FC = () => {
   const whatsappNumber = '573016809346'; // Format: country code + number
-  const message = encodeURIComponent('Quiero solicitar una canción'); // Updated welcome message
+  const message = encodeURIComponent('¡Hola! Con mucho gusto quiero solicitar una canción especial 🎶');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   return (
