@@ -28,10 +28,10 @@ export const Hero: React.FC = () => {
   const handleRequestSong = () => {
     if (!user) {
       useAuthStore.getState().login().then(() => {
-        navigate('/SongRequestPage');
+        navigate('/songs');
       });
     } else {
-      navigate('/SongRequestPage');
+      navigate('/songs');
     }
   };
 
