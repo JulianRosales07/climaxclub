@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wine, Clock, MapPin, Phone, ChevronDown, Menu } from 'lucide-react';
+import { Wine, Clock, MapPin, Phone, ChevronDown, Menu, Music } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,7 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 export const Hero: React.FC = () => {
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredMenu, setIsHoveredMenu] = useState(false);
+  const [isHoveredSong, setIsHoveredSong] = useState(false);
 
   const scrollToFeatures = () => {
     const featuresSection = document.querySelector('#features');
@@ -16,12 +17,21 @@ export const Hero: React.FC = () => {
 
   const handleViewMenu = () => {
     if (!user) {
-      // If not logged in, log in as client and then navigate
       useAuthStore.getState().login().then(() => {
         navigate('/products');
       });
     } else {
       navigate('/products');
+    }
+  };
+
+  const handleRequestSong = () => {
+    if (!user) {
+      useAuthStore.getState().login().then(() => {
+        navigate('/request-song');
+      });
+    } else {
+      navigate('/request-song');
     }
   };
 
@@ -41,39 +51,75 @@ export const Hero: React.FC = () => {
 
           {(!user || user.role === 'client') && (
             <AnimatePresence>
-              <motion.button
-                onClick={handleViewMenu}
-                onHoverStart={() => setIsHovered(true)}
-                onHoverEnd={() => setIsHovered(false)}
-                className="relative px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 flex items-center gap-3 mx-auto overflow-hidden group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600"
-                  initial={{ x: '-100%' }}
-                  animate={{ x: isHovered ? '0%' : '-100%' }}
-                  transition={{ duration: 0.3 }}
-                />
-                
-                <motion.div
-                  className="relative flex items-center gap-3"
-                  animate={{ x: isHovered ? [0, -4, 4, 0] : 0 }}
-                  transition={{ duration: 0.5 }}
+              <div className="flex flex-col gap-4">
+                <motion.button
+                  onClick={handleViewMenu}
+                  onHoverStart={() => setIsHoveredMenu(true)}
+                  onHoverEnd={() => setIsHoveredMenu(false)}
+                  className="relative px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 flex items-center gap-3 mx-auto overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Menu className="w-6 h-6" />
-                  <span className="text-lg font-medium">Ver Nuestra Carta</span>
-                </motion.div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: isHoveredMenu ? '0%' : '-100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  <motion.div
+                    className="relative flex items-center gap-3"
+                    animate={{ x: isHoveredMenu ? [0, -4, 4, 0] : 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Menu className="w-6 h-6" />
+                    <span className="text-lg font-medium">Ver Nuestra Carta</span>
+                  </motion.div>
 
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: isHovered ? 1 : 0 }}
-                  transition={{ duration: 0.2 }}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: isHoveredMenu ? 1 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-full h-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm" />
+                  </motion.div>
+                </motion.button>
+
+                <motion.button
+                  onClick={handleRequestSong}
+                  onHoverStart={() => setIsHoveredSong(true)}
+                  onHoverEnd={() => setIsHoveredSong(false)}
+                  className="relative px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 flex items-center gap-3 mx-auto overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="w-full h-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm" />
-                </motion.div>
-              </motion.button>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: isHoveredSong ? '0%' : '-100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  <motion.div
+                    className="relative flex items-center gap-3"
+                    animate={{ x: isHoveredSong ? [0, -4, 4, 0] : 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Music className="w-6 h-6" />
+                    <span className="text-lg font-medium">Pedir Canción</span>
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: isHoveredSong ? 1 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-full h-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm" />
+                  </motion.div>
+                </motion.button>
+              </div>
             </AnimatePresence>
           )}
         </div>
