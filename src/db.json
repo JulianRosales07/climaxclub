@@ -231,9 +231,9 @@
       "name": "Amarillo",
       "category": "Licores",
       "quantity": null,
-      "price": 8,
+      "price": ,
       "imageUrl": "https://exitocol.vteximg.com.br/arquivos/ids/24496652/AGUARDIENTE-AMARILLO-MANZANARE-CRISTAL-750-Mililitro-3003709_a.jpg",
-      "description": "Proximamente..."
+      "description": "Aguardiente De manzanares sin azúcar botella (750 ml)"
     },
     {
       "id": "prod27",
