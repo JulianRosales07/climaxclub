@@ -17,7 +17,7 @@ const reportsRef = collection(db, COLLECTION_NAME);
 
 const prepareReportData = (report: Omit<SalesReport, 'id'>) => {
   try {
-    return {
+    const reportData = {
       date: serverTimestamp(),
       totalAmount: Number(report.totalAmount),
       sales: report.sales.map(sale => ({
@@ -30,17 +30,27 @@ const prepareReportData = (report: Omit<SalesReport, 'id'>) => {
         productId: product.productId,
         quantity: Number(product.quantity),
         totalSales: Number(product.totalSales)
-      })),
-      reconciliation: report.reconciliation ? {
-        ...report.reconciliation,
-        expectedCash: Number(report.reconciliation.expectedCash),
-        actualCash: Number(report.reconciliation.actualCash),
-        difference: Number(report.reconciliation.difference),
-        nequiTotal: Number(report.reconciliation.nequiTotal),
-        cardTotal: Number(report.reconciliation.cardTotal),
-        timestamp: Timestamp.fromDate(new Date(report.reconciliation.timestamp))
-      } : null
+      }))
     };
+
+    // Only add reconciliation if it exists and has valid data
+    if (report.reconciliation && 
+        typeof report.reconciliation.expectedCash !== 'undefined' && 
+        typeof report.reconciliation.actualCash !== 'undefined') {
+      return {
+        ...reportData,
+        reconciliation: {
+          expectedCash: Number(report.reconciliation.expectedCash),
+          actualCash: Number(report.reconciliation.actualCash),
+          difference: Number(report.reconciliation.difference),
+          nequiTotal: Number(report.reconciliation.nequiTotal),
+          cardTotal: Number(report.reconciliation.cardTotal),
+          timestamp: Timestamp.fromDate(new Date(report.reconciliation.timestamp))
+        }
+      };
+    }
+
+    return reportData;
   } catch (error) {
     console.error('Error preparing report data:', error);
     throw new Error('Error preparing report data');

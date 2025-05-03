@@ -53,9 +53,6 @@ const ProductModal: React.FC<{ product: Product; onClose: () => void }> = ({ pro
             <p className="text-xl text-blue-400 font-bold">
               Precio: ${product.price.toLocaleString()}
             </p>
-            <p className="text-sm text-gray-400 mt-2">
-              Cantidad disponible: {product.quantity}
-            </p>
           </div>
         </div>
       </motion.div>

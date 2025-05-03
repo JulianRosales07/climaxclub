@@ -1,6 +1,5 @@
 import { StateCreator } from 'zustand';
 import { Sale } from '../../types';
-import { productService } from '../../services/productService';
 import toast from 'react-hot-toast';
 import { StoreState } from '../useStore';
 
@@ -40,10 +39,6 @@ export const createSaleSlice: StateCreator<StoreState> = (set, get) => ({
           throw new Error('No hay suficiente stock disponible');
         }
 
-        // Update product stock in Firebase
-        const updatedProduct = { ...currentProduct, quantity: newQuantity };
-        await productService.update(updatedProduct);
-
         const newSale = {
           ...sale,
           id: crypto.randomUUID(),
@@ -53,11 +48,23 @@ export const createSaleSlice: StateCreator<StoreState> = (set, get) => ({
         set((state) => ({
           sales: [...state.sales, newSale],
           products: state.products.map((product) => {
-            if (product.id === sale.productId) {
-              return updatedProduct;
+            if (product.id === sale.productId && product.quantity !== null) {
+              return { ...product, quantity: newQuantity };
             }
             return product;
           }),
+        }));
+        toast.success('Venta registrada exitosamente');
+      } else {
+        // For products without quantity tracking (like cocktails)
+        const newSale = {
+          ...sale,
+          id: crypto.randomUUID(),
+          date: new Date().toISOString()
+        };
+
+        set((state) => ({
+          sales: [...state.sales, newSale]
         }));
         toast.success('Venta registrada exitosamente');
       }

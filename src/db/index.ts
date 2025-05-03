@@ -136,3 +136,23 @@ export const deleteMovement = (id: string): void => {
   const movements = getMovements();
   setStorageData(STORAGE_KEYS.MOVEMENTS, movements.filter(m => m.id !== id));
 };
+
+// Make sure all functions are exported
+export {
+  initializeDB,
+  getProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getSales,
+  addSale,
+  updateSale,
+  deleteSale,
+  getReports,
+  deleteReport,
+  closeDailySales,
+  getMovements,
+  addMovement,
+  updateMovement,
+  deleteMovement,
+};
