@@ -123,7 +123,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://github.com/JulianRosales07/imagenes/blob/main/IMG_0394.JPG?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/JulianRosales07/imagenes/refs/heads/main/IMG_0394.JPG",
       "description": "Granizado de tequila con un toque de mango."
     },
     {
@@ -132,7 +132,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://github.com/JulianRosales07/imagenes/blob/main/IMG_0394.JPG?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/JulianRosales07/imagenes/refs/heads/main/IMG_0394.JPG",
       "description": "Granizado de vodka + tequila acompañado de un toque de mora azul."
     },
     {
@@ -141,7 +141,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://github.com/JulianRosales07/imagenes/blob/main/IMG_0394.JPG?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/JulianRosales07/imagenes/refs/heads/main/IMG_0394.JPG",
       "description": "Granizado de champaña, granadina tequila y kola con apariencia de ojo de diablo."
     },
     {
@@ -150,7 +150,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://github.com/JulianRosales07/imagenes/blob/main/IMG_0394.JPG?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/JulianRosales07/imagenes/refs/heads/main/IMG_0394.JPG",
       "description": "Whisky + champaña con un toque de saborizante color fucsia."
     },
     {
