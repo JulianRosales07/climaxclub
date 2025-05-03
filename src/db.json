@@ -23,7 +23,7 @@
       "name": "Tequila Olmeca Botella",
       "category": "Licores",
       "quantity": null,
-      "price": 140000,
+      "price": 110000,
       "imageUrl": "https://media.falabella.com/falabellaCO/133607638_01/w=1500,h=1500,fit=pad",
       "description": "Tequila mexicano suave, perfecto para shots o cócteles."
     },
@@ -123,7 +123,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://example.com/pink-velvet.jpg",
+      "imageUrl": "https://example.com/mango-tequila.jpg",
       "description": "Granizado de tequila con un toque de mango."
     },
     {
@@ -132,7 +132,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://example.com/pink-velvet.jpg",
+      "imageUrl": "https://example.com/extra-shot.jpg",
       "description": "Granizado de vodka + tequila acompañado de un toque de mora azul."
     },
     {
@@ -141,7 +141,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://example.com/pink-velvet.jpg",
+      "imageUrl": "https://example.com/jager-shot.jpg",
       "description": "Granizado de champaña, granadina tequila y kola con apariencia de ojo de diablo."
     },
     {
@@ -150,7 +150,7 @@
       "category": "Granizados",
       "quantity": null,
       "price": 12000,
-      "imageUrl": "https://example.com/pink-velvet.jpg",
+      "imageUrl": "https://example.com/tequila-shot.jpg",
       "description": "Whisky + champaña con un toque de saborizante color fucsia."
     },
     {
@@ -231,9 +231,9 @@
       "name": "Amarillo",
       "category": "Licores",
       "quantity": null,
-      "price": ,
+      "price": 8,
       "imageUrl": "https://exitocol.vteximg.com.br/arquivos/ids/24496652/AGUARDIENTE-AMARILLO-MANZANARE-CRISTAL-750-Mililitro-3003709_a.jpg",
-      "description": "Aguardiente De manzanares sin azúcar botella (750 ml)"
+      "description": "Proximamente..."
     },
     {
       "id": "prod27",
